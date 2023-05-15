@@ -1,0 +1,13 @@
+{
+    "custom_pincodes": {
+        "column": {
+            "id": true,
+            "product_id": true,
+            "pincode": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CUSTOM_PINCODES_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID": true
+        }
+    }
+}
