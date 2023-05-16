@@ -1,4 +1,5 @@
 <?php
+
 namespace Codilar\CustomModule\Observer;
 
 use Magento\Framework\Event\Observer;
@@ -31,14 +32,16 @@ class SaveProductPincodesObserver implements ObserverInterface
         $pincodes = $product->getData('assign_pincodes');
 
         if ($productId && !empty($pincodes) && is_array($pincodes)) {
-            $insertData = [];
-
             foreach ($pincodes['dynamic_row'] as $pincode) {
-                $pincodeModel = $this->pincodeFactory->create();
-                $pincodeModel->setProductId($productId);
-                $pincodeModel->setPincode($pincode['pincodes']);
-                $this->pincodeRepository->save($pincodeModel);
+                $existingPincode = $this->pincodeRepository->findByPincodeAndProductId($pincode['pincodes'], $productId);
+
+                if (!$existingPincode) {
+                    $pincodeModel = $this->pincodeFactory->create();
+                    $pincodeModel->setProductId($productId);
+                    $pincodeModel->setPincode($pincode['pincodes']);
+                    $this->pincodeRepository->save($pincodeModel);
+                }
             }
         }
     }
-}
+}  

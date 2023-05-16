@@ -58,5 +58,12 @@ interface PincodeRepositoryInterface
      * @return PincodeInterface[]
      */
     public function getByProductId($productId);
+    /**
+     * Delete Pincodes by IDs
+     *
+     * @param array $pincodeIds
+     * @return bool true on success
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
 }
 

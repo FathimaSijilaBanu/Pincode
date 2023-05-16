@@ -57,6 +57,7 @@
                         <dataScope>pincodes</dataScope>
                     </settings>
                 </field>
+                
                 <actionDelete>
                     <argument name="data" xsi:type="array">
                         <item name="config" xsi:type="array">
