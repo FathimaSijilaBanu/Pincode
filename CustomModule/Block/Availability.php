@@ -1,4 +1,5 @@
 <?php
+
 namespace Codilar\CustomModule\Block;
 
 use Magento\Framework\View\Element\Template;

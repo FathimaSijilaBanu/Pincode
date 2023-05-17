@@ -1,12 +1,13 @@
 <?php
+
 namespace Codilar\CustomModule\Api\Data;
 
 interface PincodeInterface
 {
-    const ENTITY_ID = 'entity_id';
-    const PRODUCT_ID = 'product_id';
-    const PINCODE = 'pincode';
-
+    public const ENTITY_ID = 'entity_id';
+    public const PRODUCT_ID = 'product_id';
+    public const PINCODE = 'pincode';
+    
     /**
      * Get entity ID.
      *

@@ -40,15 +40,15 @@ class PincodeRepository implements PincodeRepositoryInterface
         $this->collectionProcessor = $collectionProcessor;
     }
 
-   public function save(PincodeInterface $pincode)
-{
-    try {
-        $this->pincodeResource->save($pincode);
-    } catch (\Exception $e) {
-        throw new CouldNotSaveException(__($e->getMessage()));
+    public function save(PincodeInterface $pincode)
+    {
+        try {
+            $this->pincodeResource->save($pincode);
+        } catch (\Exception $e) {
+            throw new CouldNotSaveException(__($e->getMessage()));
+        }
+        return $pincode;
     }
-    return $pincode;
-}
 
     public function getById($pincodeId)
     {
@@ -76,27 +76,27 @@ class PincodeRepository implements PincodeRepositoryInterface
         return $this->delete($pincode);
     }
     public function getByProductId($productId)
-{
-    $pincodeCollection = $this->pincodeCollectionFactory->create();
+    {
+        $pincodeCollection = $this->pincodeCollectionFactory->create();
         $pincodeCollection->addFieldToFilter('product_id', $productId);
         return $pincodeCollection->getItems();
-}
-public function findByPincodeAndProductId($pincode, $productId)
-{
-    $pincodeCollection = $this->pincodeCollectionFactory->create();
-    $pincodeCollection->addFieldToFilter('pincode', $pincode);
-    $pincodeCollection->addFieldToFilter('product_id', $productId);
-    $pincodeCollection->setPageSize(1);
-
-    $pincodeModel = null;
-    foreach ($pincodeCollection as $pincodeItem) {
-        $pincodeModel = $pincodeItem;
-        break;
     }
+    public function findByPincodeAndProductId($pincode, $productId)
+    {
+        $pincodeCollection = $this->pincodeCollectionFactory->create();
+        $pincodeCollection->addFieldToFilter('pincode', $pincode);
+        $pincodeCollection->addFieldToFilter('product_id', $productId);
+        $pincodeCollection->setPageSize(1);
 
-    if ($pincodeModel) {
-        return $pincodeModel;
+        $pincodeModel = null;
+        foreach ($pincodeCollection as $pincodeItem) {
+            $pincodeModel = $pincodeItem;
+            break;
+        }
+
+        if ($pincodeModel) {
+            return $pincodeModel;
+        }
+        return null;
     }
-    return null;
-}
 }

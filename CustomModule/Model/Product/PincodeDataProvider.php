@@ -115,12 +115,12 @@ class PincodeDataProvider extends AbstractModifier
      * @return array
      */
     private function getPincodeValues($productId)
-{
-    $pincodeValues = [];
-    $pincodes = $this->pincodeRepository->getByProductId($productId);
-    foreach ($pincodes as $pincode) {
-        $pincodeValues[] = $pincode->getPincode();
+    {
+        $pincodeValues = [];
+        $pincodes = $this->pincodeRepository->getByProductId($productId);
+        foreach ($pincodes as $pincode) {
+            $pincodeValues[] = $pincode->getPincode();
+        }
+        return $pincodeValues;
     }
-    return $pincodeValues;
-}
 }

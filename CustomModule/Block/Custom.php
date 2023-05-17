@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package     magento2
@@ -13,7 +14,8 @@ use Magento\Framework\View\Element\Template;
 
 class Custom extends Template
 {
-    public function getText() {
+    public function getText()
+    {
         return "Welcome";
     }
 }

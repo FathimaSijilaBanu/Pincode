@@ -65,5 +65,11 @@ interface PincodeRepositoryInterface
      * @return bool true on success
      * @throws \Magento\Framework\Exception\LocalizedException
      */
+    /**
+     * Delete Pincodes by IDs
+     *
+     * @param array $pincodeIds
+     * @return bool true on success
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
 }
-

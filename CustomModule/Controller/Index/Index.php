@@ -1,4 +1,5 @@
 <?php
+
 /**
 *
 * @package magento2
@@ -6,14 +7,17 @@
 * @license https://opensource.org/licenses/OSL-3.0 Open Software License v. 3.0 (OSL-3.0)
 * @link https://www.codilar.com/
 */
+
 namespace Codilar\CustomModule\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
-class Index extends Action {
+class Index extends Action implements HttpGetActionInterface
+{
     /**
      * @var PageFactory
      */
@@ -28,8 +32,7 @@ class Index extends Action {
     public function __construct(
         Context $context,
         PageFactory $pageFactory
-    )
-    {
+    ) {
         parent::__construct($context);
         $this->pageFactory = $pageFactory;
     }

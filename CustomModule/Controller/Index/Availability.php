@@ -1,4 +1,5 @@
 <?php
+
 namespace Codilar\CustomModule\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
@@ -41,6 +42,5 @@ class Availability extends Action implements HttpPostActionInterface
             $response->setData(false); // Pincode does not exist or not associated with the product
         }
         return $response;
-    }  
-    
+    }
 }
