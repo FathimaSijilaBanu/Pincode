@@ -12,14 +12,14 @@ class Pincode extends AbstractModel implements PincodeInterface
         $this->_init(\Codilar\CustomModule\Model\ResourceModel\Pincode::class);
     }
 
-    public function getPincodeId()
+    public function getEntityId()
     {
-        return $this->getData(self::PINCODE_ID);
+        return $this->getData(self::ENTITY_ID);
     }
 
-    public function setPincodeId($pincodeId)
+    public function setEntityId($entityId)
     {
-        $this->setData(self::PINCODE_ID, $pincodeId);
+        $this->setData(self::ENTITY_ID, $entityId);
         return $this;
     }
 

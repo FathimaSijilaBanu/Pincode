@@ -37,7 +37,6 @@ class PincodeDataProvider extends AbstractModifier
 
         // Initialize the dynamic row array
         $data[$productId]['product']['assign_pincodes']['dynamic_row'] = [];
-
         // Retrieve the pincode values from your custom source based on the product ID
         $pincodeValues = $this->getPincodeValues($productId);
 
@@ -103,11 +102,8 @@ class PincodeDataProvider extends AbstractModifier
                 ],
             ]
         );
-      
-
         return $meta;
     }
-
     /**
      * Get the pincode values from your custom repository.
      *
