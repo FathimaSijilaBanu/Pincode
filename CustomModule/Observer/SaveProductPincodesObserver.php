@@ -33,8 +33,10 @@ class SaveProductPincodesObserver implements ObserverInterface
 
         if ($productId && !empty($pincodes) && is_array($pincodes)) {
             foreach ($pincodes['dynamic_row'] as $pincode) {
-                $existingPincode = $this->pincodeRepository->findByPincodeAndProductId($pincode['pincodes'], $productId);
-
+                $existingPincode = $this->pincodeRepository->findByPincodeAndProductId(
+                    $pincode['pincodes'],
+                    $productId
+                );
                 if (!$existingPincode) {
                     $pincodeModel = $this->pincodeFactory->create();
                     $pincodeModel->setProductId($productId);

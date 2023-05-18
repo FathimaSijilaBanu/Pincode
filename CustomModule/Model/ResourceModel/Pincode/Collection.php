@@ -3,6 +3,8 @@
 namespace Codilar\CustomModule\Model\ResourceModel\Pincode;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Codilar\CustomModule\Model\Pincode;
+use Codilar\CustomModule\Model\ResourceModel\Pincode as PincodeResource;
 
 class Collection extends AbstractCollection
 {
@@ -11,6 +13,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init('Codilar\CustomModule\Model\Pincode', 'Codilar\CustomModule\Model\ResourceModel\Pincode');
+        $this->_init(Pincode::class, PincodeResource::class);
     }
 }
