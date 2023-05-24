@@ -34,6 +34,8 @@ class SaveProductPincodesObserver implements ObserverInterface
         if ($productId && is_array($pincodes)) {
             $this->deleteExistingPincodes($productId);
             $this->saveNewPincodes($productId, $pincodes);
+        } elseif ($productId) {
+            $this->deleteExistingPincodes($productId);
         }
     }
 
@@ -44,6 +46,7 @@ class SaveProductPincodesObserver implements ObserverInterface
             $this->pincodeRepository->delete($pincode);
         }
     }
+    
     protected function saveNewPincodes($productId, $pincodes)
     {
         foreach ($pincodes['dynamic_row'] as $pincode) {
