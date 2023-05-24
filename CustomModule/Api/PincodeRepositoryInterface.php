@@ -51,6 +51,7 @@ interface PincodeRepositoryInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function findByPincodeAndProductId($pincode, $productId);
+
     /**
      * Get Pincodes by Product ID
      *
@@ -58,18 +59,4 @@ interface PincodeRepositoryInterface
      * @return PincodeInterface[]
      */
     public function getByProductId($productId);
-    /**
-     * Delete Pincodes by IDs
-     *
-     * @param array $pincodeIds
-     * @return bool true on success
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    /**
-     * Delete Pincodes by IDs
-     *
-     * @param array $pincodeIds
-     * @return bool true on success
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
 }

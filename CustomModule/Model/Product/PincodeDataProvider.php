@@ -50,58 +50,7 @@ class PincodeDataProvider extends AbstractModifier
 
     public function modifyMeta(array $meta)
     {
-        $meta = array_replace_recursive(
-            $meta,
-            [
-                'dynamicRows' => [
-                    'arguments' => [
-                        'data' => [
-                            'config' => [
-                                'componentType' => 'dynamicRows',
-                                'label' => __('Pincodes'),
-                                'renderDefaultRecord' => false,
-                                'addButtonLabel' => __('Add New Pincode'),
-                                'deleteProperty' => 'is_deleted',
-                            ],
-                        ],
-                    ],
-                    'children' => [
-                        'pincode_container' => [
-                            'arguments' => [
-                                'data' => [
-                                    'config' => [
-                                        'componentType' => 'container',
-                                        'label' => '',
-                                        'template' => 'Magento_Catalog/form/components/fieldset',
-                                        'formElement' => 'container',
-                                    ],
-                                ],
-                            ],
-                            'children' => [
-                                'pincode' => [
-                                    'arguments' => [
-                                        'data' => [
-                                            'config' => [
-                                                'label' => __('Pincode'),
-                                                'componentType' => 'field',
-                                                'formElement' => 'input',
-                                                'dataScope' => 'pincode',
-                                                'dataType' => 'text',
-                                                'sortOrder' => 10,
-                                                'validation' => [
-                                                    'required-entry' => false,
-                                                    'validate-digits' => true,
-                                                ],
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ]
-        );
+        // Modify the meta array as needed
         return $meta;
     }
     /**

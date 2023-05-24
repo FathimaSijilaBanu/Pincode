@@ -22,13 +22,14 @@
                 console.log(response);
                 if (response) {
                     messageElement.html('Product is available in this location.');
+                    messageElement.css('color', 'green');
                 } else {
                     messageElement.html('Product is not available in this location.');
+                    messageElement.css('color', 'red');
                 }
             },
             error:function(response)
             {
-                console.log(response);
                 messageElement.html('Not available.');
             }
         });
