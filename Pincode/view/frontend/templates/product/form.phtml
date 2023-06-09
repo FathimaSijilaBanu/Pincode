@@ -1,0 +1,34 @@
+<div class="pincode-form">
+    <input type="text" name="pincode" id="pincode" placeholder="Enter pincode" />
+    <button type="button" class="action primary" onclick="checkAvailability()">Check Availability</button>
+</div>
+<div id="availability-message"></div>
+<script>
+    function checkAvailability() {
+        var pincode = parseInt(jQuery('#pincode').val());
+        var SKU = '<?php echo $block->getCurrentProductSku(); ?>';
+        var url = '<?php echo $block->getUrl("pincode/index/availability"); ?>';
+
+        var messageElement = jQuery('#availability-message');
+
+        jQuery.ajax({
+            url: url,
+            type: 'post',
+            data: { pincode: pincode, SKU: SKU },
+            success: function (response) {
+                console.log(response);
+                if (response) {
+                    messageElement.html('Product is available in this location.');
+                    messageElement.css('color', 'green');
+                } else {
+                    messageElement.html('Product is not available in this location.');
+                    messageElement.css('color', 'red');
+                }
+            },
+            error:function(response)
+            {
+                messageElement.html('Not available.');
+            }
+        });
+    }
+</script>

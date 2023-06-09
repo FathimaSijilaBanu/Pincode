@@ -1,0 +1,7 @@
+<form action="<?= $block->getFormAction() ?>" method="post" enctype="multipart/form-data">
+<?php echo $block->getBlockHtml('formkey') ?>
+    <input type="file" name="csv_file" accept=".csv" />
+    <button type="submit" name="submit" class="action-primary">
+        <span><?= __('Upload CSV') ?></span>
+    </button>
+</form>

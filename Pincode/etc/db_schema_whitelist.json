@@ -1,0 +1,13 @@
+{
+    "pincodes": {
+        "column": {
+            "id": true,
+            "SKU": true,
+            "pincode": true,
+            "available_mode": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
