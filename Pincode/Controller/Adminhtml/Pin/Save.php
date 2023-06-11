@@ -77,7 +77,10 @@ class Save extends Action implements HttpPostActionInterface
 
             // Check for `back` parameter
             if ($this->getRequest()->getParam('back')) {
-                return $resultRedirect->setPath('*/*/edit', ['id' => $pincode->getId(), '_current' => true, '_use_rewrite' => true]);
+                return $resultRedirect->setPath(
+                    '*/*/edit',
+                    ['id' => $pincode->getId(), '_current' => true, '_use_rewrite' => true]
+                );
             }
 
             $this->messageManager->addSuccess(__('The pincode has been saved.'));

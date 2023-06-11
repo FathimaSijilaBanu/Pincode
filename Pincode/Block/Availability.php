@@ -54,5 +54,4 @@ class Availability extends Template
         }
         return null;
     }
-
 }

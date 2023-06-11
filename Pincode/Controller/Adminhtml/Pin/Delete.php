@@ -3,11 +3,11 @@
 namespace Codilar\Pincode\Controller\Adminhtml\Pin;
 
 use Codilar\Pincode\Api\PincodeRepositoryInterface;
-use Codilar\Pincode\Model\CouldNotDeleteException;
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 
 class Delete extends Action implements HttpGetActionInterface

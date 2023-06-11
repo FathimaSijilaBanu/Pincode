@@ -6,8 +6,9 @@ use Magento\Backend\App\Action;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\MediaStorage\Model\File\UploaderFactory;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class Actions extends Action
+class Actions extends Action implements HttpPostActionInterface
 {
     protected $uploaderFactory;
     protected $mediaDirectory;
@@ -30,7 +31,7 @@ class Actions extends Action
             $uploader->setAllowRenameFiles(true);
             $uploader->setFilesDispersion(true);
 
-            $result = $uploader->save($this->mediaDirectory->getAbsolutePath('csv_upload'));
+            $uploader->save($this->mediaDirectory->getAbsolutePath('csv_upload'));
 
             // Process the uploaded CSV file
 

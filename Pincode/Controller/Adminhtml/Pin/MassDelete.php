@@ -6,6 +6,7 @@ use Magento\Backend\App\Action;
 use Magento\Framework\Exception\LocalizedException;
 use Codilar\Pincode\Api\PincodeRepositoryInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
+use Psr\Log\LoggerInterface;
 
 class MassDelete extends Action implements HttpPostActionInterface
 {
@@ -15,17 +16,25 @@ class MassDelete extends Action implements HttpPostActionInterface
     private $pincodeRepository;
 
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
      * MassDelete constructor.
      *
      * @param Action\Context $context
      * @param PincodeRepositoryInterface $pincodeRepository
+     * @param LoggerInterface $logger
      */
     public function __construct(
         Action\Context $context,
-        PincodeRepositoryInterface $pincodeRepository
+        PincodeRepositoryInterface $pincodeRepository,
+        LoggerInterface $logger
     ) {
         parent::__construct($context);
         $this->pincodeRepository = $pincodeRepository;
+        $this->logger = $logger;
     }
 
     /**

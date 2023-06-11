@@ -7,8 +7,9 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\File\Csv;
 use Codilar\Pincode\Api\PincodeRepositoryInterface;
 use Codilar\Pincode\Api\Data\PincodeInterfaceFactory;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class UploadPost extends Action
+class UploadPost extends Action implements HttpPostActionInterface
 {
     protected $csvProcessor;
     protected $pincodeRepository;
@@ -53,7 +54,6 @@ class UploadPost extends Action
                 } else {
                     continue; // Skip this row if pincode is not found
                 }
-                // Convert SKU and pincode to normal string
                 $sku = $this->convertToNormalString($sku);
                 $pincode = $this->convertToNormalString($pincode);
                 $pincodeModel = $this->pincodeInterfaceFactory->create();

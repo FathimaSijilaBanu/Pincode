@@ -10,6 +10,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @var array
      */
     protected $loadedData;
+    
     /**
      * @param string $name
      * @param string $primaryFieldName
@@ -48,7 +49,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         }
 
         $items = $this->collection->getItems();
-        $this->loadedData = array();
+        $this->loadedData = [];
         foreach ($items as $item) {
             $this->loadedData[$item->getId()] = $item->getData();
         }

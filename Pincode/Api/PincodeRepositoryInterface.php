@@ -42,10 +42,10 @@ interface PincodeRepositoryInterface
      */
     public function deleteById($pincodeId);
      /**
-     * Get new instance of Pincode
-     *
-     * @return PincodeInterface
-     */
+      * Get new instance of Pincode
+      *
+      * @return PincodeInterface
+      */
     public function getNew();
     /**
      * Find pincode by pincode and SKU
