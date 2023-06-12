@@ -1,7 +1,43 @@
-<form action="<?= $block->getFormAction() ?>" method="post" enctype="multipart/form-data">
-<?php echo $block->getBlockHtml('formkey') ?>
+<style>
+    .upload-form {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .upload-form input[type="file"] {
+        margin-bottom: 20px;
+    }
+
+    .upload-form button {
+        background-color: #ff4d4d;
+        color: #ffffff;
+        padding: 12px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 25px;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+
+    .upload-form button:hover {
+        background-color: #e60000;
+    }
+
+    .upload-form span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+</style>
+<form class="upload-form" action="<?= $block->getFormAction() ?>" method="post" enctype="multipart/form-data">
+    <?php echo $block->getBlockHtml('formkey') ?>
     <input type="file" name="csv_file" accept=".csv" />
     <button type="submit" name="submit" class="action-primary">
+        </svg>
         <span><?= __('Upload CSV') ?></span>
     </button>
 </form>
